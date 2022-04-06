@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>About</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="/assets/css/styles.css"> -->
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: #FFE5D9;
+        }
+
+        .btn-outline-light {
+            margin: 6px;
+        }
+
+        .btn-light,
+        .btn-light::after {
+            margin: 6px;
+            background-color: #FEC89A;
+            font-size: 20px;
+            color: white;
+            border-radius: 20px;
+            border-color: #7F644D;
+        }
+
+        .btn-light:hover {
+            margin: 6px;
+            background-color: transparent;
+            font-size: 20px;
+            color: #7F644D;
+            border-radius: 20px;
+            border-color: #FEC89A;
+            border-width: 1px;
+        }
+
+        .paragraph-1,
+        .paragraph-2 {
+            font-size: 20px;
+            text-align: justify;
+            color: #7F644D;
+        }
+
+        .methods-title {
+            color: #7F644D;
+        }
+
+        .modal-btn-outline {
+            background-color: transparent;
+            border-color: transparent;
+            border-width: 1px;
+            color: #7F644D;
+        }
+
+        .modal-btn-outline:hover {
+            background-color: transparent;
+            border-color: #FEC89A;
+            border-width: 1px;
+            color: #7F644D;
+        }
+
+        .modal-btn {
+            border-color: #FEC89A;
+            border-width: 1px;
+        }
+
+        .col-form-label {
+            font-size: 20px;
+            color: #7F644D;
+        }
+
+
+        .calculating-value-get-btn:hover {
+            border-width: 2px;
+            border-color: #FEC89A;
+            background-color: transparent;
+            color: #7F644D;
+        }
+
+        .calculating-value-get-btn {
+            border-width: 2px;
+            color: white;
+            background-color: #FEC89A;
+            border-color: #FEC89A;
+        }
+
+        .calculating-value-get-btn::after {
+            border-width: 2px;
+            color: white;
+            background-color: #FEC89A;
+            border-color: #FEC89A;
+        }
+
+        .method-panel-btn {
+            padding: 0px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            width: 240px;
+            height: 240px;
+            border-radius: 14px;
+            border-width: 0px;
+            border-top: 0px solid #FEC5BB;
+            background: linear-gradient(130deg, #FFE5D9, #FEC89A);
+            opacity: 1.0;
+
+        }
+
+        .method-panel-btn:hover {
+            border-top: 0px solid #FEC5BB;
+            background: linear-gradient(130deg, #FEC89A, #FFD7BA);
+            opacity: 0.9;
+
+        }
+
+        .method-panel-btn-img {
+            width: 240px;
+            height: 240px;
+            border-radius: 14px;
+            border-top: 4px solid #7F644D;
+            opacity: 1.0;
+        }
+
+        .method-panel-btn-img:hover {
+            border-top: 6px solid #835b39;
+            opacity: 0.9;
+        }
+
+        .table-panel {
+
+
+            border-radius: 14px;
+            background-color: #FEFBFA;
+            margin-top: 24px;
+            margin-left: 36px;
+            margin-right: 36px;
+        }
+
+        .requirement-supply-sections {
+            border-radius: 14px;
+            margin: 8px;
+            background-color: #FEC89A;
+            padding-bottom: 12px;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        .requirement-supply-sections h5 {
+            text-align: center;
+            color: #7F644D;
+            padding: 8px
+        }
+
+        .canvas {
+            border: 4px solid white;
+            border-radius: 14px;
+            background-color: #FEFBFA;
+        }
+    </style>
+</head>
+
+<body id="wiki" style="background: #FFE5D9;">
+
+    <nav class="navbar navbar-light navbar-expand-md sticky-top border-white fw-normal shadow d-sm-flex justify-content-xl-center"
+        style="background: repeating-linear-gradient(3deg, #FEC89A, #FFE5D9), transparent;transform: translate(0px); ">
+        <div class="container-fluid"><button data-bs-toggle="collapse" class="navbar-toggler"
+                data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse text-uppercase text-end d-md-flex d-lg-flex d-xl-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center"
+                id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="index.html"></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="calculator.html"></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#"></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html"></a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false"
+                            data-bs-toggle="dropdown" href="#"></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item kaz-language-btn" href="#"><img
+                                    class="bg-dark border rounded-0 border-dark shadow"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHcAAAA8CAMAAABreNUXAAAAkFBMVEUAr8r+xQz/xgAAr8wArtEArs8Ars0ArdMArdX/yABhtKzOwFbJv1u9vmMtsMOLuJF6tprewkFwtaOuvHRKsrfmwzaduogArNhYs7JYtK/SwFM6sb6It5S3vHCsvHprtae8vWnZwUfUwU2buoLAv1rswzCTuY30xBzFvmIAq96juoOlu362vHeTuYdxtp7txCJUBP8LAAAD30lEQVRYheWZ25KjIBCGCQcPSAgqGCOeZxU3Tibv/3aLk6rdmb0Ctyq52M6dJfloaLp/WgD+QwsAIQg9n1vzpu2ofDYWH09X2h+fjQVhejrWAj5/oVWequNAnw4e39p0/vF0Lk5g8wEPT6YCQKorS+eUPx08vB3Hvs+evc7h1LDqFj/dX3z8aMti3OfuP8yW5Evds0J7IzEtcR7d8F647I9qLrypM6WVVPx+7m2G32GYyZmBwWsMInMnIYVCzSYz554TbyySCaW5zk8eQ9FF4zgbuI4w4XOxsLPw5pL5thi43Bj2GINNUXRnsahpeJfn/qIK7BuXiFZCsbVtPfy9lmV8pnf4sCWsh2D2zrMhiykyxmMEAXD4KSA8PAxOWMdN5MkN6hYYQ7vFfZ2vdUllfPhtMCWivHomvKDO1aCGvHfmEjDeQwUPX8CCxieP+HjYgC5t1HSu00XZSfDyi7uWq6JMnDwzD14FU5fBY7pXQ9ev7lowZ0Pne4ZLNo9F7Z7s+KWI2F/csqx9Ey1umrpIVjfuthmn5I6S79z4Uqheom3v3blJtghhnLZXbouJecGbv/yVIrOZA5HCHYynPElX47JMRDDJiUgnKb5zTZhPiyZUG48wGdq8anqHeA6ojt87RM60B9/dbfRCIoDTeeTO+h9XjDVHl3wVqln1DQbrtIbFt/ML9KguiBtWG+f08cldnPKkhKsxdgfPTfpz/AOOOw11yEkNVV+5L/RjnR3mqdM3A+OakDUpi6iPH2QIO13XSiI8QWVq5hpZ7nFlI6rqCxgAfl7s+zQ9wBiaBkgRS8zxzU4kV84B7XGOcA3HqE5CRNszLLoIlKXEWsazPpJAw+wEU+BcHXDz7po3SJ63JOrXEOCM8ZiOcs36d8UVseIuBfg6tR5VqWSFzZNuaW4xHOFhtR6HIi/vnaGHUGF7qPmkEbnGHurBpy4g3iYcBQsDGHVBd0JV9CMqOcGdETjQrPQphgNwr4OEVi0GGOQnjAMOyCWwbka6uWK7wXfmIXZ86/5HvOV/3B7a0uo7++NiXGw92LDaoyz46hzUme3vcbaMiWJUGZO2oX2s+5l7KZ1N1wEPXUf4TVhygHEYzUmJrYbeHlaDX93foWMJp9QeO0I+3sJPFxEXeeepr/bodrC1u/B8rKMH9SJR5Cvr9txTNiPXIb5pbs9QYOL4EHvr9j33so0rqNZinut1glNC/WLq02Tf+99DtzuhTqdxMEObyWjHTXTvvRt8qjgCbMbY1SvY+gyXvX2Gf7BX9VVe1UfC1fqSvtmr+oSv6ou+qg/8qr73q/r8r/qu8bLvOP+R/QIUwVRq+H/QtQAAAABJRU5ErkJggg=="
+                                    style="width: 50px;height: 30px;">&nbsp; Қазақша</a>
+                            <a class="dropdown-item rus-language-btn" href="#"><img
+                                    class="bg-dark border rounded-0 border-dark shadow-sm"
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/1200px-Flag_of_Russia.svg.png"
+                                    style="width: 50px;height: 30px;">&nbsp; русский</a>
+                            <a class="dropdown-item eng-language-btn" href="#"><img
+                                    class="bg-dark border rounded-0 border-dark shadow"
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png"
+                                    style="width: 50px;height: 30px;">&nbsp; english</a></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container shadow-none" style="margin-top: 16px;border-radius: 0px; margin-bottom: 16px;">
+        <div class="row" style="border-radius: 0px;">
+            <div class="col-12" id="main-content"
+                style="background: #FFF;border-radius: 8px;border-style: initial;border-color: #FEC89A;box-shadow: 2px 2px 5px 2px #FEC89A;">
+                <section class="highlight-clean">
+                    <div class="container">
+                        <div class="head-content">
+                            <br>
+                            <h3 class="text-center main-title" style="color: #7F644D;"></h3>
+                            <br>
+                            <p id="developer-info-paragraph" style="font-size: 22px; color: #7F644D;"></p>
+                            <br>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script src="data.js"></script>
+    <script type="module">
+        
+        
+
+        const tagA = document.createElement('a')
+        tagA.classList.add('nav-link')
+        tagA.classList.add('active')
+
+        let title = document.querySelector('.main-title')
+
+       
+
+        function getMainContent(currentLanguage) {
+
+            const navs = ['wiki', 'calculate', 'results', 'about-app', 'change-language']
+
+            document.querySelector('.navbar-nav').querySelectorAll('.nav-link').forEach((currentNavList, i) => {
+                currentNavList.textContent = (data.navs[navs[i]][currentLanguage])
+                console.log(currentNavList)
+            })
+
+            title.textContent = data['about-page']['header'][`${currentLanguage}`]
+            document.getElementById('developer-info-paragraph').classList.add('text-center')
+           document.getElementById('developer-info-paragraph').textContent = 
+            data['about-page']['developer'][currentLanguage] + ' Бекбосын Інкар МИСТ-63'
+
+        }
+
+        const languageBtnIDs = [
+            'kaz-language-btn', 'rus-language-btn', 'eng-language-btn'
+        ]
+
+        const languages = ['kaz', 'rus', 'eng']
+
+        languageBtnIDs.forEach((current, index) => {
+            document.querySelector(`.${current}`).addEventListener('click', () => {
+                getMainContent(languages[index])
+            })
+        })
+        getMainContent('rus')
+
+
+
+    </script>
+</body>
+
+</html>

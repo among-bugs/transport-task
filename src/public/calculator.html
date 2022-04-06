@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="tables.css">
+    <link rel="stylesheet" href="tables-here.css">
+
+    <script async="true" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=AM_CHTML"> </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js">
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+    <style>
+        body {
+            background: #FFE5D9;
+        }
+
+        .btn-outline-light {
+            margin: 6px;
+        }
+
+        .btn-light,
+        .btn-light::after {
+            margin: 6px;
+            background-color: #FEC89A;
+            font-size: 20px;
+            color: white;
+            border-radius: 20px;
+            border-color: #7F644D;
+        }
+
+        .btn-light:hover {
+            margin: 6px;
+            background-color: transparent;
+            font-size: 20px;
+            color: #7F644D;
+            border-radius: 20px;
+            border-color: #FEC89A;
+            border-width: 1px;
+        }
+
+        .paragraph-1,
+        .paragraph-2 {
+            font-size: 20px;
+            text-align: justify;
+            color: #7F644D;
+        }
+
+        .methods-title {
+            color: #7F644D;
+        }
+
+        .modal-btn-outline {
+            background-color: transparent;
+            border-color: transparent;
+            border-width: 1px;
+            color: #7F644D;
+        }
+
+        .modal-btn-outline:hover {
+            background-color: transparent;
+            border-color: #FEC89A;
+            border-width: 1px;
+            color: #7F644D;
+        }
+
+        .modal-btn {
+            border-color: #FEC89A;
+            border-width: 1px;
+        }
+
+        .col-form-label {
+            font-size: 20px;
+            color: #7F644D;
+        }
+
+
+        .calculating-value-get-btn:hover {
+            border-width: 2px;
+            border-color: #FEC89A;
+            background-color: transparent;
+            color: #7F644D;
+        }
+
+        .calculating-value-get-btn {
+            border-width: 2px;
+            color: white;
+            background-color: #FEC89A;
+            border-color: #FEC89A;
+        }
+
+        .calculating-value-get-btn::after {
+            border-width: 2px;
+            color: white;
+            background-color: #FEC89A;
+            border-color: #FEC89A;
+        }
+
+        .method-panel-btn {
+            padding: 0px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 220px;
+            height:100px;
+            border-radius: 14px;
+            border-width: 0px;
+            border-top: 0px solid #FEC5BB;
+            background: linear-gradient(130deg, #FFE5D9, #FEC89A);
+            opacity: 1.0;
+
+        }
+
+        .method-panel-btn:hover {
+            border-top: 0px solid #FEC5BB;
+            background: linear-gradient(130deg, #FEC89A, #FFD7BA);
+            opacity: 0.9;
+
+        }
+
+        .method-panel-btn-img {
+            width: 250px;
+            height: 250px;
+            border-radius: 8px;
+            border-top: 4px solid #7F644D;
+            opacity: 1.0;
+        }
+
+        .method-panel-btn-img:hover {
+            border-top: 6px solid #835b39;
+            opacity: 0.9;
+        }
+
+        .table-panel {
+            border-radius: 14px;
+            background-color: #FEFBFA;
+            margin-top: 24px;
+            margin-left: 36px;
+            margin-right: 36px;
+        }
+
+        .requirement-supply-sections {
+            border-radius: 14px;
+            margin: 8px;
+            background-color: #FEC89A;
+            padding-bottom: 12px;
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        .requirement-supply-sections h5 {
+            text-align: center;
+            color: #7F644D;
+            padding: 8px
+        }
+
+
+        .calculating-methods-content {
+            background-color: white;
+            text-align: center;
+            border: 1px solid white;
+            border-radius: 12px;
+            margin-left: 10px;
+            margin-right: 10px;
+            padding-top: 10px;
+            align-items: center;
+        }
+
+        .table-here>tbody {
+            text-align: center;
+            align-items: center;
+        }
+
+
+
+        .simplex {
+            text-align: center;
+        }
+
+        .transport2 {
+            border: 1px solid #403227;
+        }
+
+        .simplex>table {
+            /* border-collapse: collapse; */
+            border: 1px solid black;
+            width: 100%;
+        }
+
+        .simplex>th,
+        .table-here>table>tbody>tr>td>table>tbody>tr>td {
+
+            font-size: 18px;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .table-here-1>table>tbody>tr>td>table>tbody {
+            border: 2px solid #7F644D;
+        }
+
+        td {
+            color: #403227;
+            font-size: 20px;
+        }
+
+        .nofr4 {
+            font-size: 20px;
+            color: #F8EDEB
+        }
+
+        .bgcolor {
+            background-color: #FEC5BB;
+        }
+
+        .bgcolorold,
+        .right.bot.bgcolorold {
+            background-color: #FAE1DD;
+            color: #F8EDEB;
+        }
+
+        .skobop,
+        .tmatleft,
+        .tmatright {
+            color: black;
+        }
+
+        .t0.focus {
+            border-left: 1px solid #7F644D;
+            border-right: 1px solid #7F644D;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+
+            border-radius: 4px;
+        }
+
+        .bot.bgcolor,
+        .right.bot.bgcolor {
+            background-color: #FEC5BB;
+            /* border: 1px solid #403227; */
+        }
+
+        .bot.right {
+            background-color: transparent;
+            border: 2px solid #7F644D;
+        }
+
+        .right.left {
+            background-color: transparent;
+        }
+
+        .top.right.bot,
+        .left.bot {
+            background-color: #FFD7BA;
+        }
+
+        .right.bot.bgcolor,
+        .right.bot {
+            border: 0px solid transparent;
+        }
+
+        .right.left {
+            background-color: #F8EDEB;
+            border-left-color: #403227;
+            border-left-width: 1px;
+        }
+
+        .bot.bgcolor {
+            border-left-color: #403227;
+            border-left-width: 1px;
+        }
+
+        .right,
+        .right.bot,
+        .right.bot.bgcolor {
+            border-right-color: #403227;
+            border-right-width: 1px;
+        }
+
+        .bot.right,
+        .bot.bgcolor,
+        .bot,
+        .right.bot.bgcolor,
+        .left.right {
+            border-bottom-color: #403227;
+            border-bottom-width: 1px;
+        }
+
+        .iil {
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-light navbar-expand-md sticky-top border-white fw-normal shadow d-sm-flex justify-content-xl-center"
+        style="background: repeating-linear-gradient(3deg, #FEC89A, #FFE5D9), transparent;transform: translate(0px); ">
+        <div class="container-fluid"><button data-bs-toggle="collapse" class="navbar-toggler"
+                data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse text-uppercase text-end d-md-flex d-lg-flex d-xl-flex justify-content-md-center align-items-md-center justify-content-lg-center align-items-lg-center justify-content-xl-center align-items-xl-center"
+                id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active" href="index.html"></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="calculator.html"></a></li>
+                    <li class="nav-item"><a class="nav-link active" type="button" data-bs-toggle="modal"
+                            data-bs-target="#resultmodal"></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html"></a></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link" aria-expanded="false"
+                            data-bs-toggle="dropdown" href="#"></a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item kaz-language-btn" href="#"><img
+                                    class="bg-dark border rounded-0 border-dark shadow"
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHcAAAA8CAMAAABreNUXAAAAkFBMVEUAr8r+xQz/xgAAr8wArtEArs8Ars0ArdMArdX/yABhtKzOwFbJv1u9vmMtsMOLuJF6tprewkFwtaOuvHRKsrfmwzaduogArNhYs7JYtK/SwFM6sb6It5S3vHCsvHprtae8vWnZwUfUwU2buoLAv1rswzCTuY30xBzFvmIAq96juoOlu362vHeTuYdxtp7txCJUBP8LAAAD30lEQVRYheWZ25KjIBCGCQcPSAgqGCOeZxU3Tibv/3aLk6rdmb0Ctyq52M6dJfloaLp/WgD+QwsAIQg9n1vzpu2ofDYWH09X2h+fjQVhejrWAj5/oVWequNAnw4e39p0/vF0Lk5g8wEPT6YCQKorS+eUPx08vB3Hvs+evc7h1LDqFj/dX3z8aMti3OfuP8yW5Evds0J7IzEtcR7d8F647I9qLrypM6WVVPx+7m2G32GYyZmBwWsMInMnIYVCzSYz554TbyySCaW5zk8eQ9FF4zgbuI4w4XOxsLPw5pL5thi43Bj2GINNUXRnsahpeJfn/qIK7BuXiFZCsbVtPfy9lmV8pnf4sCWsh2D2zrMhiykyxmMEAXD4KSA8PAxOWMdN5MkN6hYYQ7vFfZ2vdUllfPhtMCWivHomvKDO1aCGvHfmEjDeQwUPX8CCxieP+HjYgC5t1HSu00XZSfDyi7uWq6JMnDwzD14FU5fBY7pXQ9ev7lowZ0Pne4ZLNo9F7Z7s+KWI2F/csqx9Ey1umrpIVjfuthmn5I6S79z4Uqheom3v3blJtghhnLZXbouJecGbv/yVIrOZA5HCHYynPElX47JMRDDJiUgnKb5zTZhPiyZUG48wGdq8anqHeA6ojt87RM60B9/dbfRCIoDTeeTO+h9XjDVHl3wVqln1DQbrtIbFt/ML9KguiBtWG+f08cldnPKkhKsxdgfPTfpz/AOOOw11yEkNVV+5L/RjnR3mqdM3A+OakDUpi6iPH2QIO13XSiI8QWVq5hpZ7nFlI6rqCxgAfl7s+zQ9wBiaBkgRS8zxzU4kV84B7XGOcA3HqE5CRNszLLoIlKXEWsazPpJAw+wEU+BcHXDz7po3SJ63JOrXEOCM8ZiOcs36d8UVseIuBfg6tR5VqWSFzZNuaW4xHOFhtR6HIi/vnaGHUGF7qPmkEbnGHurBpy4g3iYcBQsDGHVBd0JV9CMqOcGdETjQrPQphgNwr4OEVi0GGOQnjAMOyCWwbka6uWK7wXfmIXZ86/5HvOV/3B7a0uo7++NiXGw92LDaoyz46hzUme3vcbaMiWJUGZO2oX2s+5l7KZ1N1wEPXUf4TVhygHEYzUmJrYbeHlaDX93foWMJp9QeO0I+3sJPFxEXeeepr/bodrC1u/B8rKMH9SJR5Cvr9txTNiPXIb5pbs9QYOL4EHvr9j33so0rqNZinut1glNC/WLq02Tf+99DtzuhTqdxMEObyWjHTXTvvRt8qjgCbMbY1SvY+gyXvX2Gf7BX9VVe1UfC1fqSvtmr+oSv6ou+qg/8qr73q/r8r/qu8bLvOP+R/QIUwVRq+H/QtQAAAABJRU5ErkJggg=="
+                                    style="width: 50px;height: 30px;">&nbsp; Қазақша</a>
+                            <a class="dropdown-item rus-language-btn" href="#"><img
+                                    class="bg-dark border rounded-0 border-dark shadow-sm"
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/1200px-Flag_of_Russia.svg.png"
+                                    style="width: 50px;height: 30px;">&nbsp; русский</a>
+                            <a class="dropdown-item eng-language-btn" href="#"><img
+                                    class="bg-dark border rounded-0 border-dark shadow"
+                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2560px-Flag_of_the_United_States.svg.png"
+                                    style="width: 50px;height: 30px;">&nbsp; english</a></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container shadow-none" id="calculator"
+        style="padding-top: 16px; border-radius: 0px; margin-bottom: 16px;">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center" id="calculator-page-heading" style="color: #7F644D; margin-bottom: 16px;">
+                    Калькулятор</h2>
+                <div class="row">
+                    <div class="col-12 col-sm-6 col-lg-6 col-xl-6 d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex justify-content-end align-items-center justify-content-sm-end align-items-sm-center justify-content-md-end align-items-md-center justify-content-lg-end align-items-lg-center justify-content-xl-end align-items-xl-center"
+                        style="text-align: right;">
+                        <div class="row">
+                            <div class="col-12">
+                                <p id="calculator-page-paragraph"
+                                    style="text-align: end; font-size: 20px; color: #7F644D;"></p>
+                            </div>
+                            <div class="col-12">
+                                <a role="button" id="calculator-page-get-values-button"
+                                    class="btn btn-light calculating-value-get-btn" style="font-size: 20px;"
+                                    href="#staticBackdrop">Click</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <img class='img-fluid d-xxl-flex' style='opacity: 0.96;' src='calculator-img.png' />
+                    </div>
+                </div>
+
+                <div class="row table-panel">
+                    <div class="container">
+                        <h5 id="firstble-heading"
+                            style="text-align: center; border-width: 1px; border-color: #7F644D; margin-top: 16px; color: #BF9674">
+                        </h5>
+                        <div class="row">
+                            <div class="col-12">
+                                <h5 id="consumer-table-heading"
+                                    style="color: #BF9674; margin-top: 16px; text-align: end;"></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2
+                            d-flex d-sm-flex
+                            d-md-flex d-lg-flex
+                            d-xl-flex d-xxl-flex
+                            justify-content-center
+                            justify-content-sm-end
+                            justify-content-md-end
+                            justify-content-lg-end
+                            justify-content-xl-end
+                            justify-content-xxl-end align-items-xxl-center"
+                                style="padding-left: 16px; padding-right: 0px;">
+                                <table>
+                                    <tbody>
+                                        <td>
+                                            <input type="text" id="supplier-table-heading" style="background-color: #BF9674;
+                                                    color: white;
+                                                    text-align: center;
+                                                    font-size: 18px;" class="form-control" value="Поставщики" readonly>
+                                        </td>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-10" style="padding-left: 0px;">
+                                <table id="calculating-table-row-heading"></table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-2 " style="padding-left: 16px; padding-right: 0px; margin-top: 0px;">
+                        <table id="calculating-table-cell-heading"></table>
+                    </div>
+                    <div class="col-10" style="margin-bottom: 16px; padding-left: 0px;">
+                        <table id="calculating-table"></table>
+                    </div>
+
+                    <div class="col-12">
+                        <section class="requirement-supply-sections shadow">
+                            <h5 id="requirement-heading">
+
+                            </h5>
+                            <table id="get-requirement-table-heading">
+
+                            </table>
+                            <table id="get-requirement-table">
+
+                            </table>
+                        </section>
+
+                    </div>
+                    <div class="col-12">
+                        <section class="requirement-supply-sections shadow" style="margin-bottom: 16px;">
+                            <h5 id="supply-heading">
+
+                            </h5>
+                            <table id="get-supply-table-heading">
+
+                            </table>
+                            <table id="get-supply-table">
+
+                            </table>
+                        </section>
+                    </div>
+                </div>
+
+                <ul class="nav nav-pills mb-3 justify-content-lg-center" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation" style="margin-left: 20px; margin-right: 44px;">
+                        <button class="btn btn-primary active bg-white border-white shadow-lg method-panel-btn"
+                            type="button"
+                            style="box-shadow: 0 1rem 3rem #FFD7BA !important; border-color: #F8EDEB; border-width: 1px;"
+                            id="northwest-corner-method-button" data-bs-toggle="pill"
+                            data-bs-target="#pills-northwest-corner-method" role="tab"
+                            aria-controls="pills-northwest-corner-method" aria-selected="true">
+                            <p
+                                style="text-align: center; margin: 8px; color: #7F644D; font-weight: bold; font-size: 18px;">
+                            </p>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation" style="margin-left: 44px; margin-right: 44px;">
+                        <button class="btn btn-primary bg-white border-white shadow-lg method-panel-btn" type="button"
+                            id="minimum-element-method-button" data-bs-toggle="pill"
+                            style="box-shadow: 0 1rem 3rem #FFD7BA !important; border-color: #F8EDEB; border-width: 1px;"
+                            data-bs-target="#pills-minimum-element-method" role="tab"
+                            aria-controls="pills-minimum-element-method" aria-selected="true">
+                            <p
+                                style="text-align: center; margin: 8px; color: #7F644D;font-weight: bold; font-size: 18px;">
+                            </p>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation" style="margin-left: 44px; margin-right: 44px;">
+                        <button class="btn btn-primary bg-white border-white shadow-lg method-panel-btn" type="button"
+                            id="fogel-method-button" data-bs-toggle="pill"
+                            style="box-shadow: 0 1rem 3rem #FFD7BA !important; border-color: #F8EDEB; border-width: 1px;"
+                            data-bs-target="#pills-maximum-element-method" role="tab"
+                            aria-controls="pills-maximum-element-method" aria-selected="true">
+                            <p
+                                style="text-align: center; margin: 8px; color: #7F644D;font-weight: bold; font-size: 18px;">
+                            </p>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation" style="margin-left: 44px; margin-right: 20px;">
+                        <button class="btn btn-primary bg-white border-white shadow-lg method-panel-btn"
+                            style="box-shadow: 0 1rem 3rem #FFD7BA !important; border-color: #F8EDEB; border-width: 1px;"
+                            type="button" id="potential-method-button" data-bs-toggle="pill"
+                            data-bs-target="#pills-potential-method" role="tab" aria-controls="pills-potential-method"
+                            aria-selected="true">
+                            <p
+                                style="text-align: center; margin: 8px; color: #7F644D; font-weight: bold; font-size: 18px;">
+                            </p>
+                        </button>
+                    </li>
+                </ul>
+
+
+
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-northwest-corner-method" role="tabpanel"
+                        aria-labelledby="northwest-corner-method-tab">
+                        <div class="container">
+                            <div class="calculating-methods-content calculating-northwest-corner-method">
+                                <br>
+                                <h4 class="text-center methods-title">Метод северо - западного угла</h4>
+                                <br>
+                                <button class="btn btn-light" id="show-northest-btn" disabled>Жаңарту [ 15 ]</button>
+                                <p style="text-align: center;" id="calc-begin-header">
+                                </p>
+                                <div id="calc-content-north">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-minimum-element-method" role="tabpanel"
+                        aria-labelledby="minimum-element-method-tab">
+                        <div class="container">
+                            <div class="calculating-methods-content calculating-minimum-element-method">
+                                <br>
+                                <h4 class="text-center methods-title">Метод минимального элемента</h4>
+                                <br>
+                                <button class="btn btn-light" id="show-minimum-btn" disabled>Жаңарту [ 15 ]</button>
+                                <p style="text-align: center;" id="calc-begin-header">
+                                </p>
+                                <div id="calc-content-minimum">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-maximum-element-method" role="tabpanel"
+                        aria-labelledby="maximum-element-method-tab">
+                        <div class="container">
+                            <div class="calculating-methods-content calculating-maximum-element-method">
+                                <br>
+                                <h4 class="text-center methods-title">Метод максимального элемента</h4>
+                                <br>
+                                <button class="btn btn-light" id="show-maximum-btn" disabled>Жаңарту [ 15 ]</button>
+                                <p style="text-align: center;" id="calc-begin-header">
+                                </p>
+                                <div id="calc-content-maximum">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-potential-method" role="tabpanel"
+                        aria-labelledby="potential-method-tab">
+                        <div class="container">
+                            <div class="calculating-methods-content calculating-potential-method">
+                                <br>
+                                <h4 class="text-center methods-title">Метод потенциалов</h4>
+
+                                <p style="font-size: 18px; color: #403227; margin: 16px;" id="potential-method-content">
+                                </p>
+
+                                <br>
+                                <img src="screen.gif" alt="" style="margin-bottom: 20px;">
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3" style="margin-left: 6px; margin-right: 6px;">
+                                        <label for="suppliers-input" class="col-form-label suppliers-label"></label>
+                                        <input type="number" class="form-control" id="suppliers-input"
+                                            oninput="document.getElementById('modal-button-to-submit').setAttribute('data-bs-dismiss', 'modal')"
+                                            placeholder="">
+                                    </div>
+                                    <div class="mb-3" style="margin-left: 6px; margin-right: 6px;">
+                                        <label for="consumers-input" class="col-form-label consumers-label"></label>
+                                        <input type="number" class="form-control" id="consumers-input"
+                                            oninput="document.getElementById('modal-button-to-submit').setAttribute('data-bs-dismiss', 'modal')"
+                                            placeholder="">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light modal-btn-outline"
+                                    id="modal-button-to-cancel" data-bs-dismiss="modal"></button>
+                                <button type="button" class="btn btn-light modal-btn" id="modal-button-to-submit"
+                                    onclick="setTable(
+                                        document.getElementById('suppliers-input').value,
+                                        document.getElementById('consumers-input').value
+                                )"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="modal fade" id="resultmodal" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="resultmodalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-fullscreen">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+
+                                    <h2 class="text-center" id="result-page-heading"
+                                        style="color: #7F644D; margin-bottom: 16px;">
+                                        Калькулятор</h2>
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6 col-lg-6 col-xl-6 d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex justify-content-end align-items-center justify-content-sm-end align-items-sm-center justify-content-md-end align-items-md-center justify-content-lg-end align-items-lg-center justify-content-xl-end align-items-xl-center"
+                                            style="text-align: right;">
+                                            <div class="row">
+                                                <div class="col-4"></div>
+                                                <div class="col-8">
+                                                    <p id="show-all-result-paragraph" style="font-size: 20px; color: #403227;
+                                                    margin: 16px;"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <img class='img-fluid d-xxl-flex' style='opacity: 0.96;'
+                                                src='img/pdf-thumb.png' width="360px" />
+                                        </div>
+                                    </div>
+
+                                    <hr>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-4 text-center">
+                                                <a type="button" 
+                                                    class="btn btn-light d-flex d-xl-flex flex-fill justify-content-center"
+                                                    style="background-color: #ea5b48; color: white; font-size: 18px;
+                                                padding-left: 14px; padding-right: 18px; padding-top: 10px; padding-bottom: 10px;"
+                                                    id="get-north-pdf">.pdf</a>
+                                            </div>
+                                            <div class="col-4 text-center">
+                                                <a type="button" 
+                                                    class="btn btn-light d-flex d-xl-flex flex-fill justify-content-center"
+                                                    style="background-color: #ea5b48; color: white; font-size: 18px;
+                                                padding-left: 14px; padding-right: 18px; padding-top: 10px; padding-bottom: 10px;"
+                                                    id="get-minimum-pdf">.pdf</a>
+                                            </div>
+                                            <div class="col-4 text-center">
+                                                <a type="button"
+                                                    class="btn btn-light d-flex d-xl-flex flex-fill justify-content-center"
+                                                    style="background-color: #ea5b48; color: white; font-size: 18px; text-align: center;
+                                                padding-left: 14px; padding-right: 18px; padding-top: 10px; padding-bottom: 10px;"
+                                                    id="get-fogel-pdf">.pdf</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+    <script src="data.js"></script>
+    <!-- <script src="html2pdf.js"></script> -->
+
+
+    <script>
+        for (let indx = 1; indx <= 200; indx++) {
+            document.getElementById('calc-content-north').innerHTML += `
+            <br>
+            <table>
+                <div class="north-table-here-${indx}" align="center"></div>
+            </table>
+            <br><hr>
+        `
+            document.getElementById('calc-content-minimum').innerHTML += `
+            <br>
+            <table>
+                <div class="minimum-table-here-${indx}" align="center"></div>
+            </table>
+            <br><hr>
+            `
+            document.getElementById('calc-content-maximum').innerHTML += `
+            <br>
+            <table>
+                <div class="maximum-table-here-${indx}" align="center"></div>
+            </table>
+            <br><hr>
+        `
+        }
+    </script>
+
+    <script>
+        $(window).on('load', function () {
+            $('#staticBackdrop').modal('show');
+        });
+
+        let allData = [],
+            supplyData = [],
+            requirementData = [],
+            balance = {
+                "sup=req": "",
+                "sup>req": "",
+                "sup<req": ""
+            }
+
+        let pillsData = {}
+
+        const tagA = document.createElement('a')
+        tagA.classList.add('nav-link')
+        tagA.classList.add('active')
+
+        function getCalculateContent(currentLanguage) {
+            const navs = ['wiki', 'calculate', 'results', 'about-app', 'change-language']
+
+            document.querySelector('.navbar-nav').querySelectorAll('.nav-link').forEach((currentNavList, i) => {
+                currentNavList.textContent = (data.navs[navs[i]][currentLanguage])
+            })
+
+            const modalData = [
+                'suppliers',
+                'consumers'
+            ]
+
+            document.querySelector('.modal-title').textContent =
+                data['calculator-modal']['modal-title'][currentLanguage]
+            document.querySelector('.modal-title').style = `
+                font-size: 24px;
+                color: #7F644D
+            `
+
+            modalData.forEach((currentItem) => {
+                document.querySelector(`.${currentItem}-label`).textContent =
+                    data['calculator-modal']['labels'][currentItem][currentLanguage]
+
+                document.getElementById(`${currentItem}-input`).placeholder =
+                    data['calculator-modal']['inputs'][currentItem][currentLanguage]
+            })
+
+            const modalButtons = [
+                'submit', 'cancel'
+            ]
+            modalButtons.forEach(currentButton => {
+                document.getElementById(`modal-button-to-${currentButton}`).textContent =
+                    data['calculator-modal']['buttons'][currentButton][currentLanguage]
+            })
+
+            document.getElementById('calculator-page-heading').textContent =
+                data['calculator-page']['heading'][currentLanguage]
+
+            document.getElementById('calculator-page-paragraph').textContent =
+                data['calculator-page']['paragraph'][currentLanguage]
+
+            document.getElementById('calculator-page-get-values-button').textContent =
+                data['calculator-page']['get-values-button'][currentLanguage]
+
+            document.getElementById('firstble-heading').textContent =
+                data['calculator-page']['firstble-heading'][currentLanguage]
+
+            document.getElementById('consumer-table-heading').textContent =
+                data['calculator-page']['consumer-table-heading'][currentLanguage]
+
+            document.getElementById('supplier-table-heading').value =
+                data['calculator-page']['supplier-table-heading'][currentLanguage]
+
+            document.getElementById('requirement-heading').textContent =
+                data['calculator-page']['requirement-heading'][currentLanguage]
+
+            document.getElementById('supply-heading').textContent =
+                data['calculator-page']['supply-heading'][currentLanguage]
+
+            // document.getElementById('show-northest-btn').textContent =
+            //     data['calculator-page']['update-btn'][currentLanguage]
+
+            // document.getElementById('show-minimum-btn').textContent =
+            //     data['calculator-page']['update-btn'][currentLanguage]
+
+            // document.getElementById('show-maximum-btn').textContent =
+            //     data['calculator-page']['update-btn'][currentLanguage]
+
+
+            document.querySelector('.calculating-northwest-corner-method').querySelector('h4').innerHTML =
+                data['methods']['northwest-corner-method']['heading'][currentLanguage]
+
+            document.querySelector('.calculating-minimum-element-method').querySelector('h4').innerHTML =
+                data['methods']['minimum-element-method']['heading'][currentLanguage]
+
+            document.querySelector('.calculating-maximum-element-method').querySelector('h4').innerHTML =
+                data['methods']['maximum-element-method']['heading'][currentLanguage]
+
+            document.querySelector('.calculating-potential-method').querySelector('h4').innerHTML =
+                data['methods']['potential-method']['heading'][currentLanguage]
+
+            balance = {
+                "sup=req": data['calculator-page']['balance']['sup=req'][currentLanguage],
+                "sup>req": data['calculator-page']['balance']['sup>req'][currentLanguage],
+                "sup<req": data['calculator-page']['balance']['sup<req'][currentLanguage]
+            }
+
+            document.getElementById('northwest-corner-method-button').querySelector('p').textContent =
+                data['methods']['northwest-corner-method']['heading'][currentLanguage]
+
+            document.getElementById('minimum-element-method-button').querySelector('p').textContent =
+                data['methods']['minimum-element-method']['heading'][currentLanguage]
+
+            document.getElementById('fogel-method-button').querySelector('p').textContent =
+                data['methods']['maximum-element-method']['heading'][currentLanguage]
+
+            document.getElementById('potential-method-button').querySelector('p').textContent =
+                data['methods']['potential-method']['heading'][currentLanguage]
+
+            document.getElementById('potential-method-content').textContent =
+                data['methods']['potential-method']['content-paragraph'][currentLanguage]
+
+            document.getElementById('result-page-heading').textContent =
+                data['navs']['results'][currentLanguage]
+
+            document.getElementById('get-north-pdf').textContent =
+                data['methods']['northwest-corner-method']['heading'][currentLanguage] + ' .pdf'
+
+            document.getElementById('get-minimum-pdf').textContent =
+                data['methods']['minimum-element-method']['heading'][currentLanguage] + ' .pdf'
+
+            document.getElementById('get-fogel-pdf').textContent =
+                data['methods']['maximum-element-method']['heading'][currentLanguage] + ' .pdf'
+            // document.getElementById('modal-button-to-show-result').textContent = 
+            //     data['calculator-modal']['buttons']['submit'][currentLanguage]
+
+            // document.getElementById('modal-button-to-resultmodal-cancel').textContent = 
+            //     data['calculator-modal']['buttons']['cancel'][currentLanguage]
+
+            document.getElementById('show-all-result-paragraph').textContent = 
+                data['calculator-page']['results-page-paragraph'][currentLanguage]
+
+            pillsData = {
+                'methods': {
+                    'northwest-corner-method': {
+                        'heading': data['methods']['northwest-corner-method']['heading'][currentLanguage],
+                        'after-method-paragraph': data['calculator-page']['after-method-paragraph'][currentLanguage]
+                    },
+                    'minimum-element-method': {
+                        'heading': data['methods']['minimum-element-method']['heading'][currentLanguage],
+                        'after-minimum-paragraph': data['calculator-page']['after-minimum-paragraph'][
+                            currentLanguage
+                        ]
+                    },
+                    'maximum-element-method': {
+                        'heading': data['methods']['maximum-element-method']['heading'][currentLanguage],
+                        'after-maximum-paragraph': data['calculator-page']['after-maximum-paragraph'][
+                            currentLanguage
+                        ]
+                    },
+                    'potential-method': {
+                        'heading': data['methods']['potential-method']['heading'][currentLanguage],
+                        'calculating-x': data['calculator-page']['calculating-x'][currentLanguage],
+                        'calculating-last-tarif': data['calculator-page']['calculating-last-tarif'][
+                            currentLanguage
+                        ],
+                        'calculating-last-tarif-result': data['calculator-page']['calculating-last-tarif-result'][
+                            currentLanguage
+                        ],
+                        'method-potential-stage-numb': data['calculator-page']['method-potential-stage-numb'][
+                            currentLanguage
+                        ]
+                    }
+                },
+                'finding-the-first-baseline': data['calculator-page']['finding-the-first-baseline'][
+                    currentLanguage
+                ],
+                'baseline-improvement': data['calculator-page']['baseline-improvement'][currentLanguage],
+
+                'number-of-departure-points': data['calculator-page']['number-of-departure-points'][
+                    currentLanguage
+                ],
+                'number-of-destinations': data['calculator-page']['number-of-destinations'][currentLanguage],
+
+                'numbnumbercalc-first': data['calculator-page']['numbnumbercalc-first'][currentLanguage],
+                'numbnumbercalc-second': data['calculator-page']['numbnumbercalc-second'][currentLanguage],
+                'availability-of-cargo-from-suppliers-is-equal-to': data['calculator-page'][
+                    'availability-of-cargo-from-suppliers-is-equal-to'
+                ][currentLanguage],
+
+                'the-total-need-for-cargo-at-destinations-is-equal-to': data['calculator-page'][
+                    'the-total-need-for-cargo-at-destinations-is-equal-to'
+                ][currentLanguage],
+                'update-btn': data['calculator-page']['update-btn'][currentLanguage]
+            }
+
+        }
+
+        const languageBtnIDs = [
+            'kaz-language-btn', 'rus-language-btn', 'eng-language-btn'
+        ]
+
+        const languages = ['kaz', 'rus', 'eng']
+
+        languageBtnIDs.forEach((current, index) => {
+            document.querySelector(`.${current}`).addEventListener('click', () => {
+                getCalculateContent(languages[index])
+            })
+        })
+        getCalculateContent('rus')
+
+        function setTable(currRow, currCell) {
+            allData = []
+            document.getElementById('firstble-heading').innerHTML = null
+            document.getElementById('calculating-table').innerHTML = null
+            document.getElementById('calculating-table-row-heading').innerHTML = null
+            document.getElementById('calculating-table-cell-heading').innerHTML = null
+            document.getElementById('get-requirement-table-heading').innerHTML = null
+            document.getElementById('get-requirement-table').innerHTML = null
+            document.getElementById('get-supply-table-heading').innerHTML = null
+            document.getElementById('get-supply-table').innerHTML = null
+
+
+            for (let row = 0; row < 1; row++) {
+                let calculatingTableRowHeading =
+                    document.getElementById('calculating-table-row-heading').insertRow(row);
+                for (let cell = 0; cell < parseInt(currCell, 10); cell++) {
+                    let cellll = calculatingTableRowHeading.insertCell(cell)
+
+                    const input = document.createElement('input')
+                    input.classList.add('form-control')
+                    input.style = `
+                text-align: center;
+                background-color: #FEC89A
+            `
+                    input.setAttribute('readonly', null)
+                    cellll.style = `
+                font-size: 18px
+            `
+                    input.value = `B${cell + 1}`
+                    cellll.append(input)
+                }
+            }
+
+            for (let rrr = 0; rrr < parseInt(currRow, 10); rrr++) {
+                let calculatingTableCellHeading =
+                    document.getElementById('calculating-table-cell-heading').insertRow(rrr)
+                for (let ccc = 0; ccc < 1; ccc++) {
+                    let row = calculatingTableCellHeading.insertCell(ccc)
+                    const inputR = document.createElement('input')
+                    inputR.classList.add('form-control')
+                    inputR.style = `
+                text-align: center;
+                background-color: #FFE5D9
+            `
+                    inputR.setAttribute('readonly', null)
+                    row.style = `
+                font-size: 18px
+            `
+                    inputR.value = `A${rrr + 1}`
+                    row.append(inputR)
+                }
+            }
+
+            for (var r = 0; r < parseInt(currRow, 10); r++) {
+                let calculatingTable = document.getElementById('calculating-table').insertRow(r);
+                for (var c = 0; c < parseInt(currCell, 10); c++) {
+                    var y = calculatingTable.insertCell(c);
+                    const input = document.createElement('input')
+                    input.classList.add('form-control')
+                    input.style = `
+                text-align: center
+            `
+                    y.append(input)
+                }
+            }
+
+            for (let index = 0; index < 1; index++) {
+                let reqTable = document.getElementById('get-requirement-table').insertRow(index)
+                let reqTableHeading =
+                    document.getElementById('get-requirement-table-heading').insertRow(index)
+                for (let indey = 0; indey < parseInt(currCell, 10); indey++) {
+                    let cell = reqTable.insertCell(indey)
+                    let cellHeading = reqTableHeading.insertCell(indey)
+                    const input = document.createElement('input')
+                    input.classList.add('form-control')
+                    input.style = `
+                text-align: center
+            `
+                    const inputHeading = document.createElement('input')
+                    inputHeading.classList.add('form-control')
+                    inputHeading.style = `
+                text-align: center;
+                background-color: #BF9674;
+                color: #FEFBFA
+            `
+                    inputHeading.value = `B${indey + 1}`
+                    inputHeading.setAttribute('readonly', '')
+
+                    cell.append(input)
+                    cellHeading.append(inputHeading)
+                }
+            }
+
+            for (let indsuppl = 0; indsuppl < 1; indsuppl++) {
+                let supTable = document.getElementById('get-supply-table').insertRow(indsuppl)
+                let supTableHeading =
+                    document.getElementById('get-supply-table-heading').insertRow(indsuppl)
+                for (let indysuppl = 0; indysuppl < parseInt(currRow, 10); indysuppl++) {
+                    let supCell = supTable.insertCell(indysuppl)
+                    let supCellHeading = supTableHeading.insertCell(indysuppl)
+
+                    const input = document.createElement('input')
+                    input.classList.add('form-control')
+                    input.style = `
+                text-align: center
+            `
+                    const inputHeading = document.createElement('input')
+                    inputHeading.classList.add('form-control')
+                    inputHeading.style = `
+                text-align: center;
+                background-color: #BF9674;
+                color: #FEFBFA
+            `
+                    inputHeading.value = `A${indysuppl + 1}`
+                    inputHeading.setAttribute('readonly', '')
+
+                    supCell.append(input)
+                    supCellHeading.append(inputHeading)
+                }
+            }
+
+        }
+
+        function calculating() {
+            let table = document.getElementById('calculating-table')
+            let supplyTable = document.getElementById('get-supply-table')
+            let requirementTable = document.getElementById('get-requirement-table')
+
+            allData = []
+            supplyData = []
+            requirementData = []
+
+            function getData(currentTable, currentData) {
+                currentTable.querySelectorAll('tr').forEach((row) => {
+                    let rowsArray = []
+                    row.querySelectorAll('td').forEach((col) => {
+                        rowsArray.push(parseInt(col.querySelector('input').value))
+                    })
+                    currentData.push(rowsArray)
+                })
+            }
+
+            getData(table, allData)
+            getData(supplyTable, supplyData)
+            getData(requirementTable, requirementData)
+        }
+
+        function drawing(currentData, currentSupplyData, currentRequirementData) {
+
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+            const sumOfSupply = currentSupplyData[0].reduce((a, b) => a + b, 0)
+            const sumOfRequirement = currentRequirementData[0].reduce((a, b) => a + b)
+
+            function balanceStatus() {
+                let status = ''
+                if (sumOfSupply < sumOfRequirement) {
+                    status = balance['sup<req']
+                }
+                if (sumOfSupply > sumOfRequirement) {
+                    status = balance['sup>req']
+                }
+                if (sumOfSupply == sumOfRequirement) {
+                    status = balance['sup=req']
+                }
+                return status
+            }
+
+            if (sumOfSupply < sumOfRequirement) {
+                let zero = []
+                for (let indx = 0; indx < currentRequirementData[0].length; indx++) {
+                    zero.push(0)
+                }
+                currentData.push(zero)
+                currentSupplyData[0].push(
+                    sumOfRequirement - sumOfSupply
+                )
+
+            }
+
+            if (sumOfSupply > sumOfRequirement) {
+                for (let row = 0; row < currentData.length; row++) {
+                    currentData[row].push(0)
+                }
+                currentRequirementData[0].push(
+                    sumOfSupply - sumOfRequirement
+                )
+            }
+
+
+
+            function setTables(paragraphTextAlgin, paragraphTwo) {
+                let trow = '',
+                    tdata = '',
+                    tdataReq = '',
+                    all = '';
+
+                tdataReq = `<td></td>`
+                for (let ind = 0; ind < currentRequirementData[0].length; ind++) {
+                    tdataReq += `<td style='width: 100px'>
+                    <p style='text-align: center'>B${ind + 1}</p>
+                    <p style='text-align: center; color: red'>${currentRequirementData[0][ind]}</p>
+                </td>`
+                }
+                tdataReq += `<td><p style='text-align: center'>Vj</p></td>`
+                for (let row = 0; row < currentData.length; row++) {
+                    tdata = ''
+                    tdata += `<td style='width: 100px'>
+                <p style='text-align: center'>A${row + 1}</p>
+                <p style='text-align: center; color: red'>${currentSupplyData[0][row]}</p>
+            </td>`
+                    for (let cell = 0; cell < currentData[row].length; cell++) {
+                        function setColor() {
+                            if (currentData[row][cell] == 5) {
+                                return 'background-color: #ff000073'
+                            }
+                        }
+                        tdata += `<td style='${setColor()}'>
+                    <p style='text-align: ${paragraphTextAlgin}}'>
+                        ${currentData[row][cell]}
+                    </p>
+                </td>`
+                    }
+                    tdata += `<td style='width: 100px'>
+                        <p style='text-align: center'>
+                            ${currentData[row].reduce((a, b) => a + b, 0)}
+                        </p>
+                    </td>`
+                    trow += `<tr>${
+                tdata
+            }</tr>`
+                }
+                all = `<tr>${tdataReq}</tr>${trow}`
+                return all
+            }
+
+            var DOMURL = self.URL || self.webkitURL || self;
+            var img = new Image();
+            var svg = new Blob([data], {
+                type: "image/svg+xml;charset=utf-8"
+            });
+            var url = DOMURL.createObjectURL(svg);
+            img.onload = function () {
+                ctx.drawImage(img, 0, 0);
+                DOMURL.revokeObjectURL(url);
+            };
+            img.src = url;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        document.getElementById('northwest-corner-method-button').addEventListener('click', () => {
+            document.getElementById('show-northest-btn').setAttribute('disabled', null)
+            calculating()
+
+            if ((supplyData[0][0]).toString() != 'NaN' &&
+                (requirementData[0][0]).toString() != 'NaN' &&
+                (allData[0][0]).toString() != 'NaN') {
+
+                values = {
+                    'all': allData,
+                    'all-end': '',
+                    'supplier': {
+                        'sup-length': document.getElementById('suppliers-input').value,
+                        'sup-length-end': '',
+                        'sup-data': supplyData,
+                        'sup-data-end': ''
+                    },
+                    'consumer': {
+                        'con-length': document.getElementById('consumers-input').value,
+                        'con-length-end': '',
+                        'con-data': requirementData,
+                        'con-end': ''
+                    },
+                    'changedbutton': {
+                        'changed-button-start': '',
+                        'changed-button': 1,
+                        'changed-button-end': ''
+                    }
+                }
+
+                let JsonVar = new Blob([JSON.stringify(values)], {
+                    type: "text/plain;charset=utf-8"
+                });
+
+                saveAs(JsonVar, "alldata.json");
+            } else {
+                window.alert('Error')
+            }
+
+            function timer() {
+
+                let btn = document.getElementById('show-northest-btn')
+
+                var regexp = /(\d+)/i;
+                var RealTimer = regexp.exec(btn.innerHTML)[0];
+                RealTimer = RealTimer - 1;
+                if (RealTimer < 0) RealTimer = 0;
+
+                btn.innerHTML = pillsData['update-btn'] + ' [' + RealTimer + ']';
+
+                function setStyles() {
+                    document.querySelectorAll('.nofr4').forEach((nofr4) => {
+                        nofr4.setAttribute('style', 'color: red')
+
+                    })
+                }
+
+                if (RealTimer == 0) {
+                    btn.removeAttribute('disabled')
+                    btn.innerHTML = pillsData['update-btn']
+                    setStyles()
+                    return true;
+
+                } else {
+                    setTimeout(timer, 1000)
+                }
+            }
+            setTimeout(timer, 5)
+        })
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        document.getElementById('minimum-element-method-button').addEventListener('click', () => {
+            document.getElementById('show-minimum-btn').setAttribute('disabled', null)
+            calculating()
+
+            if ((supplyData[0][0]).toString() != 'NaN' &&
+                (requirementData[0][0]).toString() != 'NaN' &&
+                (allData[0][0]).toString() != 'NaN') {
+
+                values = {
+                    'all': allData,
+                    'all-end': '',
+                    'supplier': {
+                        'sup-length': document.getElementById('suppliers-input').value,
+                        'sup-length-end': '',
+                        'sup-data': supplyData,
+                        'sup-data-end': ''
+                    },
+                    'consumer': {
+                        'con-length': document.getElementById('consumers-input').value,
+                        'con-length-end': '',
+                        'con-data': requirementData,
+                        'con-end': ''
+                    },
+                    'changedbutton': {
+                        'changed-button-start': '',
+                        'changed-button': 2,
+                        'changed-button-end': ''
+                    }
+                }
+
+                let JsonVar = new Blob([JSON.stringify(values)], {
+                    type: "text/plain;charset=utf-8"
+                });
+
+                saveAs(JsonVar, "alldata.json");
+            } else {
+                window.alert('Error')
+            }
+
+            function timer() {
+
+                let btn = document.getElementById('show-minimum-btn')
+
+                var regexp = /(\d+)/i;
+                var RealTimer = regexp.exec(btn.innerHTML)[0];
+                RealTimer = RealTimer - 1;
+                if (RealTimer < 0) RealTimer = 0;
+
+                btn.innerHTML = pillsData['update-btn'] + ' [' + RealTimer + ']';
+
+                function setStyles() {
+                    document.querySelectorAll('.nofr4').forEach((nofr4) => {
+                        nofr4.setAttribute('style', 'color: red')
+
+                    })
+                }
+
+                if (RealTimer == 0) {
+                    btn.removeAttribute('disabled')
+                    btn.innerHTML = pillsData['update-btn']
+                    setStyles()
+                    return true;
+
+                } else {
+                    setTimeout(timer, 1000)
+                }
+            }
+            setTimeout(timer, 5)
+        })
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        document.getElementById('fogel-method-button').addEventListener('click', () => {
+
+            document.getElementById('show-maximum-btn').setAttribute('disabled', null)
+            calculating()
+
+            if ((supplyData[0][0]).toString() != 'NaN' &&
+                (requirementData[0][0]).toString() != 'NaN' &&
+                (allData[0][0]).toString() != 'NaN') {
+
+                values = {
+                    'all': allData,
+                    'all-end': '',
+                    'supplier': {
+                        'sup-length': document.getElementById('suppliers-input').value,
+                        'sup-length-end': '',
+                        'sup-data': supplyData,
+                        'sup-data-end': ''
+                    },
+                    'consumer': {
+                        'con-length': document.getElementById('consumers-input').value,
+                        'con-length-end': '',
+                        'con-data': requirementData,
+                        'con-end': ''
+                    },
+                    'changedbutton': {
+                        'changed-button-start': '',
+                        'changed-button': 3,
+                        'changed-button-end': ''
+                    }
+                }
+
+                let JsonVar = new Blob([JSON.stringify(values)], {
+                    type: "text/plain;charset=utf-8"
+                });
+
+                saveAs(JsonVar, "alldata.json");
+            } else {
+                window.alert('Error')
+            }
+
+            function timer() {
+
+                let btn = document.getElementById('show-maximum-btn')
+
+                var regexp = /(\d+)/i;
+                var RealTimer = regexp.exec(btn.innerHTML)[0];
+                RealTimer = RealTimer - 1;
+                if (RealTimer < 0) RealTimer = 0;
+
+                btn.innerHTML = pillsData['update-btn'] + ' [' + RealTimer + ']';
+
+                function setStyles() {
+                    document.querySelectorAll('.nofr4').forEach((nofr4) => {
+                        nofr4.setAttribute('style', 'color: red')
+
+                    })
+                }
+
+                if (RealTimer == 0) {
+                    btn.removeAttribute('disabled')
+                    btn.innerHTML = pillsData['update-btn']
+                    setStyles()
+                    return true;
+
+                } else {
+                    setTimeout(timer, 1000)
+                }
+            }
+            setTimeout(timer, 5)
+        })
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        document.getElementById('potential-method-button').addEventListener('click', () => {
+
+
+        })
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        document.getElementById('show-northest-btn').addEventListener('click', () => {
+
+            document.querySelectorAll(`calc-content-north table div`).forEach(div => {
+                div.innerHTML = null
+            })
+
+            let tables = []
+
+            fetch("/togetvalues.json")
+                .then(response => response.json())
+                .then((response, i) => {
+
+                    let formulas = []
+                    let uls = []
+
+                    response.formulas.forEach(formula => {
+                        formulas.push(formula)
+                    });
+
+                    response.uls.forEach(ul => {
+                        uls.push(ul)
+                    })
+
+
+
+                    for (let i of (response.tables).keys()) {
+
+                        document.querySelector(`.north-table-here-${i + 1}`).innerHTML = null
+                        document.querySelector('.north-table-here-2').innerHTML = ''
+
+                        if (document.querySelector(`.north-table-here-${i + 1}`).querySelector(
+                                '.nametab1')) {
+                            document.querySelector(`.north-table-here-${i + 1}`).innerHTML = null
+                        }
+
+                        document.querySelector(`.north-table-here-${i + 1}`).innerHTML +=
+                            response.tables[i]
+                        tables.push(response.tables[i])
+                    }
+
+                    for (let i of (response.tables).keys()) {
+                        document.querySelector(`.north-table-here-${i + 1}`).innerHTML +=
+                            `<br>` +
+                            `<p class="after-method-paragraph" style="font-size: 18px; color: #000000; margin: 16px">
+                                ${pillsData['methods']['northwest-corner-method']['after-method-paragraph']}    
+                            </p>`
+
+                        if (document.querySelector(`.north-table-here-${i + 1}`).querySelector(
+                                '.nametab')) {
+                            break
+                        }
+                    }
+
+                    const sumOfSupply = supplyData[0].reduce((a, b) => a + b, 0)
+                    const sumOfRequirement = requirementData[0].reduce((a, b) => a + b)
+
+                    function balanceStatus() {
+                        let status = ''
+                        if (sumOfSupply < sumOfRequirement) {
+                            status = balance['sup<req']
+                        }
+                        if (sumOfSupply > sumOfRequirement) {
+                            status = balance['sup>req']
+                        }
+                        if (sumOfSupply == sumOfRequirement) {
+                            status = balance['sup=req']
+                        }
+                        return status
+                    }
+
+                    if (document.querySelector('.north-table-here-1')) {
+                        document.querySelector('.north-table-here-1').querySelector('p').innerHTML = null
+                        document.querySelector('.north-table-here-1').querySelector('br').remove()
+                        document.querySelector(`.north-table-here-2`).innerHTML += `
+                            <p style="font-size: 18px; color: #000000; margin: 16px">
+                                ${pillsData['number-of-departure-points']} m = ${supplyData[0].length},
+                            </p>
+                            <p style="font-size: 18px; color: #000000; margin: 16px">
+                                ${pillsData['number-of-destinations']} n = ${requirementData[0].length}
+                            </p>
+                            <p style="font-size: 18px; color: #000000; margin: 16px">` +
+                            pillsData['numbnumbercalc-first'] +
+                            " <br> m + n − 1 = " + supplyData[0].length + " + " + requirementData[0]
+                            .length + " − 1 = " + ((parseInt(supplyData[0].length) + parseInt(
+                                requirementData[0].length)) - 1) +
+                            " <br> " + pillsData['numbnumbercalc-second'] +
+                            ` </p><br>
+                            <p style="font-size: 18px; color: #000000; margin: 16px">
+                                ${pillsData['availability-of-cargo-from-suppliers-is-equal-to']}:
+                            </p>
+                            <p style="font-size: 22px; color: #000000; margin: 16px">
+                                ∑ A<sub>i</sub> = ${ supplyData[0].join(' + ')} = ${supplyData[0].reduce((a, b) => a + b, 0)}
+                            </p><br>
+                            <p style="font-size: 18px; color: #000000; margin: 16px">
+                                ${pillsData['the-total-need-for-cargo-at-destinations-is-equal-to']}:
+                            </p>
+                            <p style="font-size: 22px; color: #000000; margin: 16px">
+                                ∑ B<sub>i</sub> = ${ requirementData[0].join(' + ')} = ${requirementData[0].reduce((a, b) => a + b, 0)}
+                            </p><br>
+                            <p style="font-size: 20px; color: #000; margin: 16px">${balanceStatus()}</p>
+                            <br>
+                            <hr><br>
+                            <h5 style="color: #000000;">${pillsData['finding-the-first-baseline']}</h5>
+                            `
+                    }
+
+                    document.querySelector('.north-table-here-2').querySelector('.after-method-paragraph')
+                        .remove()
+
+                    document.querySelectorAll('.nametab').forEach((nametab, i) => {
+                        let heading = document.createElement('h5')
+                        heading.className = 'text-center'
+                        heading.classList.add(`potential-title-${i + 1}`)
+                        heading.style = `
+                            color: #000000;
+                            margin-bottom: 16px
+                        `
+                        heading.id = 'north-potential-id'
+                        heading.textContent = pillsData['methods']['potential-method'][
+                            'method-potential-stage-numb'
+                        ] + ' ' + (i + 1)
+                        nametab.before(heading)
+                        nametab.outerHTML +=
+                            `<br>` +
+                            `<p style="font-size: 18px; color: #000000; margin: 16px">${pillsData['methods']['potential-method']['calculating-x']}</p>` +
+                            `<br>` +
+                            `<img src='img/tarif-formula.jpg'/>` +
+                            `<p style="font-size: 18px; color: #000000; margin: 16px">${pillsData['methods']['potential-method']['calculating-last-tarif']}</p>` +
+                            `<p style="font-size: 18px; color: #000000; margin: 16px">${pillsData['methods']['potential-method']['calculating-last-tarif-result']}</p>` +
+                            `<br>` + (formulas[i + 2]) +
+                            `<br>`
+                    })
+
+                    for (let i of (response.tables).keys()) {
+                        if (document.querySelector(`.north-table-here-${i + 1}`).querySelector(
+                                '.potential-title-1')) {
+                            document.querySelector(`.north-table-here-${(i + 1) - 1}`).outerHTML +=
+                                `
+                                <hr><br>
+                                    <h5 style="color: #000000;">${pillsData['baseline-improvement']}</h5>
+                                `
+                            document.querySelector(`.north-table-here-${i + 1}`).querySelector(
+                                '.after-method-paragraph').remove()
+                        }
+                        if (document.querySelector(`.north-table-here-${i + 1}`).querySelector(
+                                '.nametab')) {
+                            break
+                        }
+                    }
+
+                    document.querySelector(`.north-table-here-${tables.length + 1}`).innerHTML = null
+                    $(`.north-table-here-${tables.length + 1}`).nextAll().remove()
+                })
+                .catch(err => console.log(err))
+
+            function setStyles() {
+                document.querySelectorAll('.nofr4').forEach((nofr4) => {
+                    nofr4.setAttribute('style', 'color: #FCD5CE')
+                })
+            }
+
+            setStyles()
+
+        })
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        document.getElementById('show-minimum-btn').addEventListener('click', () => {
+
+            document.querySelectorAll(`calc-content-minimum table div`).forEach(div => {
+                div.innerHTML = null
+            })
+
+            let tables = []
+
+            fetch("/togetvalues.json")
+                .then(response => response.json())
+                .then((response, i) => {
+
+                    let formulas = []
+                    let uls = []
+
+                    response.formulas.forEach(formula => {
+                        formulas.push(formula)
+                    });
+
+                    response.uls.forEach(ul => {
+                        uls.push(ul)
+                    })
+
+
+
+                    for (let i of (response.tables).keys()) {
+
+                        document.querySelector(`.minimum-table-here-${i + 1}`).innerHTML = null
+                        document.querySelector('.minimum-table-here-2').innerHTML = ''
+
+                        if (document.querySelector(`.minimum-table-here-${i + 1}`).querySelector(
+                                '.nametab1')) {
+                            document.querySelector(`.minimum-table-here-${i + 1}`).innerHTML = null
+                        }
+
+                        document.querySelector(`.minimum-table-here-${i + 1}`).innerHTML +=
+                            response.tables[i]
+                        tables.push(response.tables[i])
+                    }
+
+                    for (let i of (response.tables).keys()) {
+                        document.querySelector(`.minimum-table-here-${i + 1}`).innerHTML +=
+                            `<br>` +
+                            `<p class="after-minimum-paragraph" style="font-size: 18px; color: #000000; margin: 16px">
+                    ${pillsData['methods']['minimum-element-method']['after-minimum-paragraph']}    
+                </p>`
+
+                        if (document.querySelector(`.minimum-table-here-${i + 1}`).querySelector(
+                                '.nametab')) {
+                            break
+                        }
+                    }
+
+                    const sumOfSupply = supplyData[0].reduce((a, b) => a + b, 0)
+                    const sumOfRequirement = requirementData[0].reduce((a, b) => a + b)
+
+                    function balanceStatus() {
+                        let status = ''
+                        if (sumOfSupply < sumOfRequirement) {
+                            status = balance['sup<req']
+                        }
+                        if (sumOfSupply > sumOfRequirement) {
+                            status = balance['sup>req']
+                        }
+                        if (sumOfSupply == sumOfRequirement) {
+                            status = balance['sup=req']
+                        }
+                        return status
+                    }
+
+                    if (document.querySelector('.minimum-table-here-1')) {
+                        document.querySelector('.minimum-table-here-1').querySelector('p').innerHTML = null
+                        document.querySelector('.minimum-table-here-1').querySelector('br').remove()
+                        document.querySelector(`.minimum-table-here-2`).innerHTML += `
+                <p style="font-size: 18px; color: #000000; margin: 16px">
+                    ${pillsData['number-of-departure-points']} m = ${supplyData[0].length},
+                </p>
+                <p style="font-size: 18px; color: #000000; margin: 16px">
+                    ${pillsData['number-of-destinations']} n = ${requirementData[0].length}
+                </p>
+                <p style="font-size: 18px; color: #000000; margin: 16px">` +
+                            pillsData['numbnumbercalc-first'] +
+                            " <br> m + n − 1 = " + supplyData[0].length + " + " + requirementData[0]
+                            .length + " − 1 = " + ((parseInt(supplyData[0].length) + parseInt(
+                                requirementData[0].length)) - 1) +
+                            " <br> " + pillsData['numbnumbercalc-second'] +
+                            ` </p><br>
+                <p style="font-size: 18px; color: #000000; margin: 16px">
+                    ${pillsData['availability-of-cargo-from-suppliers-is-equal-to']}:
+                </p>
+                <p style="font-size: 22px; color: #000000; margin: 16px">
+                    ∑ A<sub>i</sub> = ${ supplyData[0].join(' + ')} = ${supplyData[0].reduce((a, b) => a + b, 0)}
+                </p><br>
+                <p style="font-size: 18px; color: #000000; margin: 16px">
+                    ${pillsData['the-total-need-for-cargo-at-destinations-is-equal-to']}:
+                </p>
+                <p style="font-size: 22px; color: #000000; margin: 16px">
+                    ∑ B<sub>i</sub> = ${ requirementData[0].join(' + ')} = ${requirementData[0].reduce((a, b) => a + b, 0)}
+                </p><br>
+                <p style="font-size: 20px; color: #000; margin: 16px">${balanceStatus()}</p>
+                <br>
+                <hr><br>
+                <h5 style="color: #000000;">${pillsData['finding-the-first-baseline']}</h5>
+                `
+                    }
+
+                    document.querySelector('.minimum-table-here-2').querySelector(
+                            '.after-minimum-paragraph')
+                        .remove()
+
+                    document.querySelectorAll('.nametab').forEach((nametab, i) => {
+                        let heading = document.createElement('h5')
+                        heading.className = 'text-center'
+                        heading.classList.add(`potential-title-${i + 1}`)
+                        heading.style = `
+                color: #000000;
+                margin-bottom: 16px
+            `
+                        heading.id = 'minimum-potential-id'
+                        heading.textContent = pillsData['methods']['potential-method'][
+                            'method-potential-stage-numb'
+                        ] + ' ' + (i + 1)
+                        nametab.before(heading)
+                        nametab.outerHTML +=
+                            `<br>` +
+                            `<p style="font-size: 18px; color: #000000; margin: 16px">${pillsData['methods']['potential-method']['calculating-x']}</p>` +
+                            `<br>` +
+                            `<img src='img/tarif-formula.jpg'/>` +
+                            `<p style="font-size: 18px; color: #000000; margin: 16px">${pillsData['methods']['potential-method']['calculating-last-tarif']}</p>` +
+                            `<p style="font-size: 18px; color: #000000; margin: 16px">${pillsData['methods']['potential-method']['calculating-last-tarif-result']}</p>` +
+                            `<br>` + (formulas[i + 2]) +
+                            `<br>`
+                    })
+
+                    for (let i of (response.tables).keys()) {
+                        if (document.querySelector(`.minimum-table-here-${i + 1}`).querySelector(
+                                '.potential-title-1')) {
+                            document.querySelector(`.minimum-table-here-${(i + 1) - 1}`).outerHTML +=
+                                `
+                    <hr><br>
+                        <h5 style="color: #000000;">${pillsData['baseline-improvement']}</h5>
+                    `
+                            document.querySelector(`.minimum-table-here-${i + 1}`).querySelector(
+                                '.after-minimum-paragraph').remove()
+                        }
+                        if (document.querySelector(`.minimum-table-here-${i + 1}`).querySelector(
+                                '.nametab')) {
+                            break
+                        }
+                    }
+
+                    document.querySelector(`.minimum-table-here-${tables.length + 1}`).innerHTML = null
+                    $(`.minimum-table-here-${tables.length + 1}`).nextAll().remove()
+                })
+                .catch(err => console.log(err))
+
+            function setStyles() {
+                document.querySelectorAll('.nofr4').forEach((nofr4) => {
+                    nofr4.setAttribute('style', 'color: #FCD5CE')
+                })
+            }
+
+            setStyles()
+
+        })
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////
+        document.getElementById('show-maximum-btn').addEventListener('click', () => {
+
+            document.querySelectorAll(`calc-content-maximum table div`).forEach(div => {
+                div.innerHTML = null
+            })
+
+            let tables = []
+
+            fetch("/togetvalues.json")
+                .then(response => response.json())
+                .then((response, i) => {
+
+                    let formulas = []
+                    let uls = []
+
+                    response.formulas.forEach(formula => {
+                        formulas.push(formula)
+                    });
+
+                    response.uls.forEach(ul => {
+                        uls.push(ul)
+                    })
+
+                    for (let i of (response.tables).keys()) {
+
+                        document.querySelector(`.maximum-table-here-${i + 1}`).innerHTML = null
+                        document.querySelector('.maximum-table-here-2').innerHTML = ''
+
+                        if (document.querySelector(`.maximum-table-here-${i + 1}`).querySelector(
+                                '.nametab1')) {
+                            document.querySelector(`.maximum-table-here-${i + 1}`).innerHTML = null
+                        }
+
+                        document.querySelector(`.maximum-table-here-${i + 1}`).innerHTML +=
+                            response.tables[i]
+                        tables.push(response.tables[i])
+                    }
+
+                    for (let i of (response.tables).keys()) {
+                        document.querySelector(`.maximum-table-here-${i + 1}`).innerHTML +=
+                            `<br>` +
+                            `<p class="after-maximum-paragraph" style="font-size: 18px; color: #000000; margin: 16px">
+                    ${pillsData['methods']['maximum-element-method']['after-maximum-paragraph']}    
+                </p>`
+
+                        if (document.querySelector(`.maximum-table-here-${i + 1}`).querySelector(
+                                '.nametab')) {
+                            break
+                        }
+                    }
+
+                    const sumOfSupply = supplyData[0].reduce((a, b) => a + b, 0)
+                    const sumOfRequirement = requirementData[0].reduce((a, b) => a + b)
+
+                    function balanceStatus() {
+                        let status = ''
+                        if (sumOfSupply < sumOfRequirement) {
+                            status = balance['sup<req']
+                        }
+                        if (sumOfSupply > sumOfRequirement) {
+                            status = balance['sup>req']
+                        }
+                        if (sumOfSupply == sumOfRequirement) {
+                            status = balance['sup=req']
+                        }
+                        return status
+                    }
+
+                    if (document.querySelector('.maximum-table-here-1')) {
+                        document.querySelector('.maximum-table-here-1').querySelector('p').innerHTML = null
+                        document.querySelector('.maximum-table-here-1').querySelector('br').remove()
+                        document.querySelector(`.maximum-table-here-2`).innerHTML += `
+                <p style="font-size: 18px; color: #000000; margin: 16px">
+                    ${pillsData['number-of-departure-points']} m = ${supplyData[0].length},
+                </p>
+                <p style="font-size: 18px; color: #000000; margin: 16px">
+                    ${pillsData['number-of-destinations']} n = ${requirementData[0].length}
+                </p>
+                <p style="font-size: 18px; color: #000000; margin: 16px">` +
+                            pillsData['numbnumbercalc-first'] +
+                            " <br> m + n − 1 = " + supplyData[0].length + " + " + requirementData[0]
+                            .length + " − 1 = " + ((parseInt(supplyData[0].length) + parseInt(
+                                requirementData[0].length)) - 1) +
+                            " <br> " + pillsData['numbnumbercalc-second'] +
+                            ` </p><br>
+                <p style="font-size: 18px; color: #000000; margin: 16px">
+                    ${pillsData['availability-of-cargo-from-suppliers-is-equal-to']}:
+                </p>
+                <p style="font-size: 22px; color: #000000; margin: 16px">
+                    ∑ A<sub>i</sub> = ${ supplyData[0].join(' + ')} = ${supplyData[0].reduce((a, b) => a + b, 0)}
+                </p><br>
+                <p style="font-size: 18px; color: #000000; margin: 16px">
+                    ${pillsData['the-total-need-for-cargo-at-destinations-is-equal-to']}:
+                </p>
+                <p style="font-size: 22px; color: #000000; margin: 16px">
+                    ∑ B<sub>i</sub> = ${ requirementData[0].join(' + ')} = ${requirementData[0].reduce((a, b) => a + b, 0)}
+                </p><br>
+                <p style="font-size: 20px; color: #000; margin: 16px">${balanceStatus()}</p>
+                <br>
+                <hr><br>
+                <h5 style="color: #000000;">${pillsData['finding-the-first-baseline']}</h5>
+                `
+                    }
+
+                    document.querySelector('.maximum-table-here-2').querySelector(
+                            '.after-maximum-paragraph')
+                        .remove()
+
+                    document.querySelectorAll('.nametab').forEach((nametab, i) => {
+                        let heading = document.createElement('h5')
+                        heading.className = 'text-center'
+                        heading.classList.add(`potential-title-${i + 1}`)
+                        heading.style = `
+                color: #000000;
+                margin-bottom: 16px
+            `
+                        heading.id = 'maximum-potential-id'
+                        heading.textContent = pillsData['methods']['potential-method'][
+                            'method-potential-stage-numb'
+                        ] + ' ' + (i + 1)
+                        nametab.before(heading)
+                        nametab.outerHTML +=
+                            `<br>` +
+                            `<p style="font-size: 18px; color: #000000; margin: 16px">${pillsData['methods']['potential-method']['calculating-x']}</p>` +
+                            `<br>` +
+                            `<img src='img/tarif-formula.jpg'/>` +
+                            `<p style="font-size: 18px; color: #000000; margin: 16px">${pillsData['methods']['potential-method']['calculating-last-tarif']}</p>` +
+                            `<p style="font-size: 18px; color: #000000; margin: 16px">${pillsData['methods']['potential-method']['calculating-last-tarif-result']}</p>` +
+                            `<br>` + (formulas[i + 2]) +
+                            `<br>`
+                    })
+
+                    for (let i of (response.tables).keys()) {
+                        if (document.querySelector(`.maximum-table-here-${i + 1}`).querySelector(
+                                '.potential-title-1')) {
+                            document.querySelector(`.maximum-table-here-${(i + 1) - 1}`).outerHTML +=
+                                `
+                    <hr><br>
+                        <h5 style="color: #000000;">${pillsData['baseline-improvement']}</h5>
+                    `
+                            document.querySelector(`.maximum-table-here-${i + 1}`).querySelector(
+                                '.after-maximum-paragraph').remove()
+                        }
+                        if (document.querySelector(`.maximum-table-here-${i + 1}`).querySelector(
+                                '.nametab')) {
+                            break
+                        }
+                    }
+
+                    document.querySelector(`.maximum-table-here-${tables.length + 1}`).innerHTML = null
+                    $(`.maximum-table-here-${tables.length + 1}`).nextAll().remove()
+                })
+                .catch(err => console.log(err))
+
+            function setStyles() {
+                document.querySelectorAll('.nofr4').forEach((nofr4) => {
+                    nofr4.setAttribute('style', 'color: #FCD5CE')
+                })
+            }
+
+            setStyles()
+
+        })
+        document.getElementById('calculator-page-get-values-button').addEventListener('click', () => {
+            document.location.reload()
+        })
+
+        function generatePDF(currentElement) {
+            var printableArea = document.getElementById(currentElement);
+
+            html2canvas(printableArea, {
+                useCORS: true,
+                onrendered: function (canvas) {
+
+                    var pdf = new jsPDF('p', 'pt', 'letter');
+
+                    var pageHeight = 1300;
+                    var pageWidth = 1200;
+                    for (var i = 0; i <= printableArea.clientHeight / pageHeight; i++) {
+                        var srcImg = canvas;
+                        var sX = 0;
+                        var sY = pageHeight * i;
+                        var sWidth = pageWidth;
+                        var sHeight = pageHeight;
+                        var dX = 0;
+                        var dY = 0;
+                        var dWidth = pageWidth;
+                        var dHeight = pageHeight;
+
+                        window.onePageCanvas = document.createElement("canvas");
+                        onePageCanvas.setAttribute('width', pageWidth);
+                        onePageCanvas.setAttribute('height', pageHeight);
+                        var ctx = onePageCanvas.getContext('2d');
+
+                        ctx.drawImage(srcImg, sX, sY, sWidth, sHeight, dX, dY, dWidth, dHeight);
+
+                        var canvasDataURL = onePageCanvas.toDataURL("image/png", 1.0);
+                        var width = onePageCanvas.width;
+                        var height = onePageCanvas.clientHeight;
+
+                        if (i > 0) 
+                            pdf.addPage(612, 791); 
+                        pdf.setPage(i + 1); 
+                        pdf.addImage(canvasDataURL, 'PNG', 20, 40, (width * .46), (height *
+                        .70)); 
+
+                    }
+                    pdf.save(`${printableArea.getAttribute('id')}.pdf`);
+                }
+            });
+        }
+
+        document.getElementById('get-north-pdf').addEventListener('click', () => {
+            generatePDF('pills-northwest-corner-method')
+        })
+
+        document.getElementById('get-minimum-pdf').addEventListener('click', () => {
+            generatePDF('pills-minimum-element-method')
+        })
+
+        document.getElementById('get-fogel-pdf').addEventListener('click', () => {
+            generatePDF('pills-maximum-element-method')
+        })
+    </script>
+</body>
+
+</html>

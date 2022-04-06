@@ -1,0 +1,145 @@
+body {
+    background: #FFE5D9;
+}
+.btn-outline-light {
+    margin: 6px;
+}
+
+.btn-light, .btn-light::after {
+    margin: 6px;
+    background-color: #FEC89A;
+    font-size: 20px;
+    color: white;
+    border-radius: 20px;
+    border-color: #7F644D;
+}
+
+.btn-light:hover {
+    margin: 6px;
+    background-color: transparent;
+    font-size: 20px;
+    color: #7F644D;
+    border-radius: 20px;
+    border-color: #FEC89A;
+    border-width: 1px;
+}
+
+.paragraph-1,.paragraph-2 {
+    font-size: 20px;
+    text-align: justify; 
+    color: #7F644D;
+}
+.methods-title {
+    color: #7F644D;
+}
+
+.modal-btn-outline {
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 1px;
+    color: #7F644D;
+}
+
+.modal-btn-outline:hover {
+    background-color: transparent;
+    border-color: #FEC89A;
+    border-width: 1px;
+    color: #7F644D;
+}
+
+.modal-btn {
+    border-color: #FEC89A;
+    border-width: 1px;
+}
+
+.col-form-label {
+    font-size: 20px;
+    color: #7F644D;
+}
+
+
+.calculating-value-get-btn:hover {
+    border-width: 2px;
+    border-color: #FEC89A;
+    background-color: transparent;
+    color: #7F644D;
+}
+
+.calculating-value-get-btn {
+    border-width: 2px;
+    color: white;
+    background-color: #FEC89A;
+    border-color: #FEC89A;
+}
+
+.calculating-value-get-btn::after {
+    border-width: 2px;
+    color: white;
+    background-color: #FEC89A;
+    border-color: #FEC89A;
+}
+
+.method-panel-btn {
+    padding: 0px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 240px;
+    height: 240px;
+    border-radius: 14px;
+    border-width: 0px;
+    border-top: 0px solid #FEC5BB;
+    background: linear-gradient(130deg, #FFE5D9, #FEC89A);
+    opacity: 1.0;
+    
+}
+
+.method-panel-btn:hover {
+    border-top: 0px solid #FEC5BB;
+    background: linear-gradient(130deg, #FEC89A, #FFD7BA);
+    opacity: 0.9;
+    
+}
+
+.method-panel-btn-img {
+    width: 240px;
+    height: 240px;
+    border-radius: 14px;
+    border-top: 4px solid #7F644D;
+    opacity: 1.0;
+}
+
+.method-panel-btn-img:hover {
+    border-top: 6px solid #835b39;
+    opacity: 0.9;
+}
+
+.table-panel {
+ 
+
+    border-radius: 14px;
+    background-color: #FEFBFA;
+    margin-top: 24px;
+    margin-left: 36px;
+    margin-right: 36px;
+}
+
+.requirement-supply-sections {
+    border-radius: 14px; 
+    margin: 8px; 
+    background-color: #FEC89A;
+    padding-bottom: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.requirement-supply-sections h5 {
+    text-align: center; 
+    color: #7F644D; 
+    padding: 8px
+}
+
+.canvas {
+    border: 4px solid white;
+    border-radius: 14px;
+    background-color: #FEFBFA;
+}
