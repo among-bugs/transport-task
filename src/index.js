@@ -15,8 +15,7 @@ const app = express()
 puppeteer.launch(
 {
     headless: true,
-    args: ['--no-sandbox'], 
-    ignoreDefaultArgs: ['--disable-extensions']
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
 }
 ).then(async function (browser) {
 
