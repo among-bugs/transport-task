@@ -16,6 +16,7 @@ puppeteer.launch(
 {
     headless: true,
     args: ['--no-sandbox'], 
+    ignoreDefaultArgs: ['--disable-extensions']
 }
 ).then(async function (browser) {
 
